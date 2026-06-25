@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 · 稳定入口与使用指引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fafaf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1c1c1e;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 —— 极简轻量 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0 1.5rem 0;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 3rem;
+    }
+    .brand {
+      font-weight: 550;
+      letter-spacing: 0.5px;
+      font-size: 1.1rem;
+      color: #2e2e30;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4a4a4d;
+      font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover {
+      color: #c44536;
+    }
+
+    /* 主要标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+      color: #1e1e20;
+    }
+    .subhead {
+      font-size: 1.05rem;
+      color: #5a5a5e;
+      margin-bottom: 2.4rem;
+      border-left: 3px solid #cacaca;
+      padding-left: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1rem 0;
+      color: #222224;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid #ececec;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1.4rem 0 0.5rem 0;
+      color: #2a2a2c;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #3a3a3e;
+    }
+
+    /* 卡片风格 —— 场景模块 */
+    .scenes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 2rem 0 2.4rem 0;
+    }
+    .scene-card {
+      background: #ffffff;
+      border: 1px solid #ececed;
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .scene-card h3 {
+      margin-top: 0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .scene-card p {
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    /* 常见说明区域（FAQ风格） */
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #e2e2e4;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #2c2c2e;
+    }
+    .faq-a {
+      font-size: 0.95rem;
+      color: #4e4e52;
+    }
+
+    /* 内联链接（符合要求：自然嵌入，文本 = mk体育） */
+    .inline-link {
+      color: #c44536;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .inline-link:hover {
+      color: #9e2f1f;
+    }
+
+    /* 分隔与底部 */
+    .footnote {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.8rem;
+      color: #7c7c82;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body { padding: 1.5rem 1rem; }
+      .top-nav { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+      .nav-links { gap: 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .scene-card { padding: 1.2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="brand">mk体育</span>
+    <div class="nav-links">
+      <a href="#intro">介绍</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </div>
+  </nav>
+
+  <!-- 核心介绍区域 -->
+  <h1>稳定入口与页面说明</h1>
+  <div class="subhead">
+    从使用路径到内容结构，梳理 <a href="https://pro-mksport.com.cn" class="inline-link">mk体育</a> 的基础访问方式与功能分区。
+  </div>
+
+  <p>
+    对许多日常使用者来说，一个清晰、可直达的入口能省去反复查找的麻烦。<a href="https://pro-mksport.com.cn" class="inline-link">mk体育</a> 的页面结构围绕信息获取效率设计，首页即核心导航。无论你是初次打开还是固定回访，了解几个关键模块的定位，能让浏览体验更顺畅。
+  </p>
+  <p>
+    当前版本的主页不堆砌装饰元素，而是把重点放在内容组织和入口引导上。下面我们从三个常见使用场景出发，说明不同需求下如何利用现有页面布局快速定位。
+  </p>
+
+  <!-- 三个场景模块 -->
+  <h2 id="scenes">三个典型场景</h2>
+  <div class="scenes-grid">
+
+    <div class="scene-card">
+      <h3>① 日常浏览 · 信息获取</h3>
+      <p>打开 <a href="https://pro-mksport.com.cn" class="inline-link">mk体育</a> 后，首屏呈现的是按时间或重要度排列的条目。你可以像翻阅列表一样，从上至下了解最新动态。页面没有强制弹窗或过度广告，注意力可以自然集中在内容本身。</p>
+    </div>
+
+    <div class="scene-card">
+      <h3>② 查找特定内容 · 分类定位</h3>
+      <p>当你想寻找某个特定主题或往期内容时，可以利用页面内置的分类标签。目前首页提供了若干内容分区入口，每个分区都有独立的摘要和跳转点。配合浏览器自带的页面搜索（Ctrl+F），也可以快速检索可见文本。</p>
+    </div>
+
+    <div class="scene-card">
+      <h3>③ 稳定访问 · 长期使用习惯</h3>
+      <p>如果你希望将 <a href="https://pro-mksport.com.cn" class="inline-link">mk体育</a> 固定为常用入口，建议直接将其添加至浏览器书签或桌面快捷方式。页面本身加载轻量，且在常规网络环境下响应稳定，无需额外插件即可完整浏览。</p>
+    </div>
+
+  </div>
+
+  <!-- 常见说明（FAQ 摘要） -->
+  <h2 id="faq">常见说明摘要</h2>
+  <div class="faq-item">
+    <div class="faq-q">页面是否需要登录或注册？</div>
+    <div class="faq-a">不需要。当前主页为公开内容展示，所有可见信息均可直接阅读，无需注册或登录。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">内容更新频率如何？</div>
+    <div class="faq-a">主页内容的更新节奏根据信息源变化而定，通常保持按日或按周刷新。你可以通过页面布局中的时间标记判断内容时效。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">移动端浏览体验是否一致？</div>
+    <div class="faq-a">页面已做基本的响应式适配，在手机和平板设备上可自动调整排版。如有布局异常，建议尝试旋转屏幕或刷新页面。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">遇到链接失效或页面显示问题怎么办？</div>
+    <div class="faq-a">可尝试清除浏览器缓存或更换网络环境后重新打开 <a href="https://pro-mksport.com.cn" class="inline-link">mk体育</a>。若问题持续，建议通过常规搜索引擎查找最新入口信息。</div>
+  </div>
+
+  <!-- 简单补充一段承接说明 -->
+  <p style="margin-top: 2rem; font-size: 0.95rem; color: #4f4f53;">
+    以上场景和说明基于当前版本的页面结构整理。随着后续迭代，部分模块位置或命名可能微调，但整体以直接、低干扰的信息呈现为原则。如果你在使用过程中发现任何与说明不符之处，多半是页面已更新，请以实际显示为准。
+  </p>
+
+  <div class="footnote">
+    <span>mk体育 · 稳定入口介绍页</span><br>
+    页面内容仅供参考，以实际访问为准。
+  </div>
+
+</div>
+</body>
+</html>
