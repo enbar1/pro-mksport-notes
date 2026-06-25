@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中彩网官网首页 · 知识库介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f4f6fa;
+            color: #1e2532;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a {
+            color: #b6482c;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(182, 72, 44, 0.3);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover, a:focus {
+            color: #852e19;
+            border-bottom-color: #852e19;
+        }
+        .hero {
+            background: #0e1729;
+            color: #e2e9f2;
+            padding: 2.8rem 1.5rem 2.6rem;
+            text-align: center;
+            border-bottom: 3px solid #b6482c;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #b6482c 0%, #b6482c 30%, #2f486b 70%, #0e1729 100%);
+            opacity: 0.4;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #f0f4fb;
+        }
+        .hero p {
+            max-width: 620px;
+            margin: 0.6rem auto 0;
+            font-size: 1rem;
+            color: #bcc8dd;
+            font-weight: 300;
+        }
+        .hero .tagline {
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.07);
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            margin-top: 0.9rem;
+            color: #cbd6e8;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+            flex: 1;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: #1f2b3c;
+            border-left: 5px solid #b6482c;
+            padding-left: 1rem;
+        }
+        .section-title small {
+            font-weight: 400;
+            font-size: 0.85rem;
+            color: #6e7d92;
+            letter-spacing: 0.3px;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.5rem 1.8rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 6px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2f7;
+            transition: box-shadow 0.25s, transform 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1f2b3c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h3 .emoji-icon {
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3a4758;
+            margin-bottom: 0.32rem;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        .card ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #b6482c;
+            font-weight: bold;
+        }
+        .notice-area {
+            background: #f7f1ed;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.2rem;
+            border-left: 6px solid #b6482c;
+        }
+        .notice-area h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #2c1b14;
+            margin-bottom: 0.6rem;
+        }
+        .notice-area p {
+            color: #3d3a38;
+            font-size: 0.98rem;
+        }
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.6rem 0 2.2rem;
+        }
+        .faq-item {
+            background: #ffffff;
+            padding: 1.2rem 1.4rem;
+            border-radius: 14px;
+            border: 1px solid #e7ecf3;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #1f2b3c;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .faq-item .a {
+            color: #4c5a6d;
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+        }
+        .related-links {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f7;
+            margin-top: 0.8rem;
+        }
+        .related-links p {
+            margin-bottom: 0.5rem;
+            color: #354354;
+            font-size: 0.95rem;
+        }
+        .related-links .sentence-link {
+            background: #f8f6fc;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.2rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.8rem;
+            color: #6e7e94;
+            border-top: 1px solid #dde3ec;
+            background: #f9fafc;
+            margin-top: 1rem;
+        }
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .faq-summary {
+                grid-template-columns: 1fr;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+            .notice-area {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+        .inline-highlight {
+            background: #f6f2e8;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 400;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d0d8e3, transparent);
+            margin: 0.8rem 0 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>中彩网 · 知识库</h1>
+        <p>稳定的信息入口，聚合常识、规则与参考。从说明区到目录感布局，便于浏览和查找。</p>
+        <span class="tagline">📘 索引 · 提示 · 说明</span>
+    </header>
+
+    <main class="container">
+        <!-- 说明区：定位与使用场景 -->
+        <div class="section-title">
+            <span>📋 页面说明</span>
+            <small>｜ 入口与目录感设计</small>
+        </div>
+        <p style="margin-bottom:1.2rem; color:#2d3a4b;">
+            本页以知识库风格组织内容，围绕与彩票信息相关的概念、术语、注意事项及常见问题展开。 
+            如果你正在寻找一个相对稳定的参考起点，可以始终把 <a href="https://china-chinalottery.com">中彩网官网首页</a> 作为信息索引的锚点。
+            下面分几个区域提供概要内容，方便快速浏览。
+        </p>
+
+        <!-- 卡片：特点与场景 -->
+        <div class="grid-cards">
+            <div class="card">
+                <h3><span class="emoji-icon">🧭</span> 目录式概览</h3>
+                <p>将彩票相关的基本术语、玩法类型、规则要点拆解为独立卡片，每个卡片指向一个知识片段，适合新读者建立初步认知。</p>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-icon">📌</span> 常见场景</h3>
+                <ul>
+                    <li>查询玩法说明与设奖规则</li>
+                    <li>了解兑奖期限与流程</li>
+                    <li>区分全国联销与地方游戏</li>
+                    <li>查看历史开奖信息概览</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><span class="emoji-icon">🛡️</span> 注意事项</h3>
+                <p>彩票属于概率游戏，所有信息以官方发布为准。本页仅作知识整理，不构成任何建议或承诺。理性参与，量力而行。</p>
+            </div>
+        </div>
+
+        <!-- 提示区：醒目提示 -->
+        <div class="notice-area">
+            <h3>📢 提示区</h3>
+            <p>
+                如果你需要查找具体的官方公告、玩法细则或开奖数据，建议直接通过 <a href="https://china-chinalottery.com">中彩网官网首页</a> 
+                获取第一手信息。第三方整理仅供参考，请以权威渠道为准。
+            </p>
+        </div>
+
+        <!-- 相关信息区：FAQ摘要 -->
+        <div class="section-title">
+            <span>❓ 常见问题摘要</span>
+            <small>｜ 快速参考</small>
+        </div>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="q"><span>🔹</span> 双色球每周开奖几次？</div>
+                <div class="a">双色球每周二、四、日开奖，具体时间可查看官方销售安排。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q"><span>🔹</span> 彩票兑奖期限是多久？</div>
+                <div class="a">通常为开奖之日起60个自然日，逾期视为弃奖。各地略有差异，请核对当地规定。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q"><span>🔹</span> 什么是浮动奖与固定奖？</div>
+                <div class="a">浮动奖按当期奖池与中奖注数分配；固定奖按单注金额派发，不受奖池影响。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q"><span>🔹</span> 购买彩票的最小年龄？</div>
+                <div class="a">根据《彩票管理条例》，不得向未成年人销售彩票。购买者须年满18周岁。</div>
+            </div>
+        </div>
+
+        <!-- 相关信息区：补充参考 -->
+        <div class="related-links">
+            <p><strong>相关信息</strong> · 以下内容有助于扩展理解：</p>
+            <p>—— 彩票资金按照一定比例分别用于返奖、公益金和发行费。公益金主要用于社会福利和体育等公共事业。</p>
+            <p>—— 每一张彩票上都印有序列号和密码，兑奖时需凭完整、清晰的彩票原件办理。</p>
+            <p>—— 全国性彩票游戏包括双色球、大乐透、福彩3D、排列三、七乐彩等，各地还有区域特色玩法。</p>
+            <hr>
+            <p>
+                <span class="inline-highlight">📎 锚点说明</span> 如果你需要系统了解彩票基础知识，可以不时回到 
+                <a href="https://china-chinalottery.com">中彩网官网首页</a> 
+                作为出发点。页面的目录感设计希望能帮助你更快定位信息。
+            </p>
+        </div>
+
+        <!-- 最后一处嵌入链接（自然放入段落） -->
+        <p style="margin-top:1.6rem; padding:0.6rem 0; color:#445566; font-size:0.93rem; border-top:1px dashed #d6dee8;">
+            本站内容仅作知识梳理，不构成任何形式的指导。关于规则与数据的权威版本，请以 
+            <a href="https://china-chinalottery.com">中彩网官网首页</a> 
+            发布的公告和文档为准。
+        </p>
+    </main>
+
+    <footer>
+        <span>知识库入口式页面 · 内容仅供参考</span>
+    </footer>
+</body>
+</html>
